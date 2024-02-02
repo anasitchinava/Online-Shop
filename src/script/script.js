@@ -17,7 +17,7 @@ async function getPopularCategories() {
 
 async function getProductsByCategory(category) {
     const categoryProducts = await fetch(`https://fakestoreapi.com/products/category/${category}`).then(res => res.json());
-    const result = categoryProducts.splice(0, 5);
+    const result = categoryProducts.splice(0, 4);
     return result;
 }
 
@@ -26,7 +26,7 @@ async function getBestsellers() {
         .then(res => res.json())
         .then(products => {
             const sortedProducts = products.sort((a, b) => b.rating.rate - a.rating.rate);
-            const bestsellers = sortedProducts.slice(0, 5);
+            const bestsellers = sortedProducts.slice(0, 4);
             return bestsellers;
         });
     return allProducts;
